@@ -10,13 +10,28 @@ ecg_env/
 venv/
 .venv/
 
-# Data and experiments
+# Data and experiment artifacts
 data/
 CUBD/
 mit-bih-arrhythmia-database-1.0.0/
 mit-bih/
 data-ft/
 experiments/
+
+# Old research folders we are not publishing
+.github/
+datasets/
+notebooks/
+pipelines/
+runners/
+scripts/
+trainers/
+utils/
+.gitattributes
+LICENCE
+bar chart.py
+covert_to_npz.py
+cubd detec.py
 
 # Generated outputs
 *.png
