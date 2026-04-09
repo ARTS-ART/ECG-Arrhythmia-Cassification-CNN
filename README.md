@@ -1,4 +1,6 @@
-# ECG Arrhythmia Classification CNN
+﻿# ECG Arrhythmia Classification CNN
+
+End-to-end deep learning system for classifying ECG signals into arrhythmia categories using a CNN-based architecture.
 
 An ECG diagnosis project built in Python and PyTorch, focused on a trained 1D CNN pipeline for automatic arrhythmia classification. The repository also includes tools for inference, evaluation, dataset preparation, and a desktop monitoring GUI.
 
@@ -9,6 +11,10 @@ Manual ECG interpretation can be slow, repetitive, and error-prone when large nu
 ## Solution
 
 This project uses a 1D convolutional neural network to classify ECG signals automatically and support faster rhythm analysis.
+
+## Dataset
+
+- MIT-BIH Arrhythmia Dataset: https://physionet.org/content/mitdb/1.0.0/
 
 ## What This Repo Includes
 
@@ -21,13 +27,18 @@ This project uses a 1D convolutional neural network to classify ECG signals auto
 - `models/` for model definitions
 - `datasets/`, `scripts/`, `trainers/`, `runners/`, and `utils/` for supporting code
 
+## How to Run
+
+```bash
+python train.py --config configs/training/EcgResNet34.json
+python inference.py --config configs/inference/config.json
+python pipeline.py --config configs/pipelines/config.json
+```
+
 ## Quick Start
 
 ```bash
 pip install -r requirements.txt
-python train.py --config configs/training/EcgResNet34.json
-python inference.py --config configs/inference/config.json
-python pipeline.py --config configs/pipelines/config.json
 ```
 
 ## Example Workflow
@@ -44,6 +55,14 @@ python pipeline.py --config configs/pipelines/config.json
 
 - Best reported 1D CNN accuracy in the project experiments: 99.38%
 - Evaluation outputs include confusion matrix and ROC curve visualizations
+
+## Visuals
+
+Add these images to `assets/` for a stronger GitHub presentation:
+
+- ECG waveform screenshot
+- Prediction output screenshot
+- Confusion matrix plot
 
 ## How It Works
 
