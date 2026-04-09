@@ -53,8 +53,23 @@ pip install -r requirements.txt
 
 ## Results
 
-- Best reported 1D CNN accuracy in the project experiments: 99.38%
-- Evaluation outputs include confusion matrix and ROC curve visualizations
+Evaluation run used:
+- `scripts/clean_single_record.npz`
+- `scripts/checkpoints/resnet34_clean_1d.pth`
+- CPU execution
+- 3,610 test samples
+
+Actual metrics from the bundled evaluation script:
+- Accuracy: `85.68%`
+- Weighted F1 score: `88.21%`
+
+Class-wise results:
+- Normal: precision `0.95`, recall `0.90`, F1 `0.92`
+- Ventricular: precision `0.01`, recall `0.04`, F1 `0.02`
+- Fusion: precision `0.00`, recall `0.00`, F1 `0.00`
+- Unknown: precision `0.00`, recall `0.00`, F1 `0.00`
+
+Evaluation outputs include confusion matrix and ROC curve visualizations.
 
 ## Visuals
 
