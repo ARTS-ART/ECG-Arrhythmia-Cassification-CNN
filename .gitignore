@@ -1,0 +1,31 @@
+.idea/
+.vscode/
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+ecg_env/
+venv/
+.venv/
+
+# Data and experiments
+data/
+CUBD/
+mit-bih-arrhythmia-database-1.0.0/
+mit-bih/
+data-ft/
+experiments/
+
+# Generated outputs
+*.png
+*.csv
+*.npy
+*.npz
+*.pth
+*.pt
+*.ckpt
+
+# Misc
+.DS_Store

@@ -1,0 +1,22 @@
+# Configuration for training EcgResNet34 on 1D cleaned ECG dataset
+
+seed: 42
+num_classes: 4
+model: EcgResNet34
+input_shape: [1, 128]  # [channels, length of each segment]
+
+train_json: clean_1D_dataset/train.json
+val_json: clean_1D_dataset/val.json
+class_map: clean_1D_dataset/class-mapper.json
+
+batch_size: 128
+epochs: 2
+learning_rate: 0.001
+weight_decay: 0.0001
+scheduler_step_size: 10
+scheduler_gamma: 0.1
+
+save_path: checkpoints/
+save_name: resnet34_clean_1d
+log_interval: 10
+device: cuda  # or "cpu" if no GPU

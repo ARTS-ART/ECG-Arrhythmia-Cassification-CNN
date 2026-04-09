@@ -1,0 +1,15 @@
+{
+  "type": "BaseRunner",
+  "exp_dir": "experiments",
+  "model_name": "resnet_34",
+  "num_classes": 5,
+  "pretrained": true,
+  "weights_path": "checkpoints/resnet34.pth",
+  "test_path": "mit-bih-arrhythmia-database-1.0.0/100",
+  "sampling_rate": 360,
+  "segment_length": 1800,
+  "overlap": 0,
+  "batch_size": 1,
+  "device": "cpu",
+  "plot": true
+}
