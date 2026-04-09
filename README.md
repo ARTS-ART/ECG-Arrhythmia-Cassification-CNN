@@ -1,123 +1,84 @@
-# Auto Diagnosis of ECG Using Advanced AI Technology
+# ECG Arrhythmia Classification CNN
 
-This repository contains an ECG diagnosis workflow built with advanced AI techniques in PyTorch. The project is focused on training and using a 1D CNN model for ECG arrhythmia classification, along with supporting tools for preprocessing, inference, evaluation, visualization, and rhythm monitoring.
+An ECG diagnosis project built in Python and PyTorch, focused on a trained 1D CNN pipeline for automatic arrhythmia classification. The repository also includes tools for inference, evaluation, dataset preparation, and a desktop monitoring GUI.
 
-## Project Highlights
+## Problem
 
-- Train ECG classification models from JSON configuration files
-- Run inference and end-to-end ECG processing pipelines
-- Focus on a trained 1D CNN model for ECG classification
-- Generate training datasets and annotation files from ECG records
-- Evaluate trained checkpoints with confusion matrix and ROC visualizations
-- Launch a desktop GUI for ECG monitoring and rhythm event logging
-- Includes local data folders and generated outputs used during experimentation
+Manual ECG interpretation can be slow, repetitive, and error-prone when large numbers of recordings need to be reviewed.
 
-## Repository Structure
+## Solution
 
-- `train.py`: starts model training from a training config
-- `inference.py`: runs inference from an inference config
-- `pipeline.py`: executes the configured ECG processing pipeline
-- `evaluate_model.py`: evaluates a trained 1D model and saves metrics plots
-- `gui_pyqt5.py`: PyQt5 dashboard for ECG rhythm monitoring
-- `scripts/`: dataset generation, annotation generation, cleaning, and helper scripts
-- `configs/`: training, inference, and pipeline JSON/YAML configuration files
-- `models/`: 1D and 2D CNN model definitions
-- `datasets/`: dataset loader implementations
-- `trainers/`, `runners/`, `pipelines/`: core execution logic
-- `utils/`: shared utilities
-- `notebooks/`: Jupyter notebooks for experimentation
-- `etc/`: project images and documentation assets
-- `data/`, `CUBD/`, `mit-bih-arrhythmia-database-1.0.0/`: ECG datasets and generated samples
-- `experiments/`: experiment outputs, checkpoints, and result artifacts
+This project uses a 1D convolutional neural network to classify ECG signals automatically and support faster rhythm analysis.
 
-## Model Used
+## What This Repo Includes
 
-This project is centered on a 1D CNN-based ECG classification workflow. The repository includes multiple legacy configs, but the trained and used approach in this project is the 1D CNN pipeline.
+- `train.py` for model training from config files
+- `inference.py` for running trained-model predictions
+- `pipeline.py` for end-to-end ECG processing
+- `evaluate_model.py` for confusion matrix and ROC analysis
+- `gui_pyqt5.py` for a desktop ECG monitoring interface
+- `configs/` for training, inference, and pipeline configuration
+- `models/` for model definitions
+- `datasets/`, `scripts/`, `trainers/`, `runners/`, and `utils/` for supporting code
 
-## Installation
-
-1. Create and activate a Python virtual environment.
-2. Install dependencies:
+## Quick Start
 
 ```bash
 pip install -r requirements.txt
-```
-
-3. If you plan to use the GUI, ensure system support for `PyQt5` and audio/Windows-specific modules is available.
-4. Download or place the ECG datasets in the expected project directories before training or running the pipeline.
-
-## Usage
-
-### Train the 1D CNN model
-
-```bash
 python train.py --config configs/training/EcgResNet34.json
-```
-
-### Run inference
-
-```bash
 python inference.py --config configs/inference/config.json
-```
-
-### Run the ECG pipeline
-
-```bash
 python pipeline.py --config configs/pipelines/config.json
 ```
 
-### Generate datasets and annotations
+## Example Workflow
 
-Examples from the `scripts/` folder:
-
-```bash
-python scripts/dataset-generation-pool.py
-python scripts/annotation-generation-1d.py
-python scripts/annotation-generation-2d.py
+```text
+1. Prepare ECG data
+2. Train the 1D CNN model
+3. Run inference on new ECG signals
+4. Evaluate predictions with ROC and confusion matrix plots
+5. Use the GUI for rhythm monitoring and event review
 ```
 
-### Evaluate a trained model
+## Results
 
-```bash
-python evaluate_model.py
+- Best reported 1D CNN accuracy in the project experiments: 99.38%
+- Evaluation outputs include confusion matrix and ROC curve visualizations
+
+## How It Works
+
+- ECG signals are prepared and converted into model-ready samples
+- The 1D CNN learns rhythm patterns from the training data
+- The trained model predicts ECG classes on new inputs
+- Evaluation scripts generate plots and summary metrics
+- The GUI provides a simple way to inspect ECG rhythm behavior
+
+## Project Structure
+
+```text
+ecg-classification-master/
+├── configs/
+├── datasets/
+├── models/
+├── scripts/
+├── trainers/
+├── runners/
+├── utils/
+├── train.py
+├── inference.py
+├── pipeline.py
+├── evaluate_model.py
+├── gui_pyqt5.py
+├── requirements.txt
+└── README.md
 ```
 
-This generates outputs such as `confusion_matrix.png` and `roc_curve_enhanced.png`.
+## Notes
 
-### Launch the GUI dashboard
-
-```bash
-python gui_pyqt5.py
-```
-
-## Data Notes
-
-This repository currently includes large local datasets and generated files, including:
-
-- MIT-BIH arrhythmia data
-- CUBD rhythm data
-- Generated `.npy` and `.npz` training assets
-- Experiment outputs and plots
-
-If you plan to publish this repository to GitHub, consider whether all dataset and environment folders should remain versioned. Large folders such as `data/`, `ecg_env/`, and dataset dumps may be better excluded with `.gitignore` or Git LFS depending on your publishing goal.
-
-## Requirements Review
-
-The current `requirements.txt` is largely based on an older PyTorch stack and may need cleanup for a fresh setup.
-
-Notable points:
-
-- `torch==1.1.0` and `torchvision==0.3.0` are very old
-- `tensorboard==1.14` is tied to an older TensorFlow-era release cycle
-- `numpy==1.21.0` may not be compatible with every pinned legacy package here
-- `scikit_learn==0.22.2.post1` uses the package name `scikit_learn`, while many environments expect `scikit-learn`
-- `PyQt5` is used by `gui_pyqt5.py` but is not listed in `requirements.txt`
-- `biosppy` is imported by `gui_pyqt5.py` but is not listed in `requirements.txt`
-- `wfdb==2.2.1` is included and is required for waveform record handling
-- `Pillow<7` is pinned tightly and may conflict with newer environments
-
-A safer next step before publishing is to test installation in a fresh environment and then update dependency pins based on the Python version you want to support.
+- The project is centered on the 1D CNN workflow.
+- Large datasets and generated artifacts are best kept out of GitHub unless intentionally published.
+- Add screenshots or result images to `assets/` if you want a stronger GitHub presentation.
 
 ## License
 
-This project includes an MIT-style license in `LICENCE`.
+This project is distributed under the MIT-style license in `LICENCE`.
