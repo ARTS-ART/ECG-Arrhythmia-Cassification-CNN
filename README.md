@@ -107,11 +107,6 @@ ecg-classification-master/
 └── README.md
 ```
 
-## Notes
-
-- The project is centered on the 1D CNN workflow.
-- Large datasets and generated artifacts are best kept out of GitHub unless intentionally published.
-- Add screenshots or result images to `assets/` if you want a stronger GitHub presentation.
 
 ## License
 
